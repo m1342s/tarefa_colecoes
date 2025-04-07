@@ -14,21 +14,25 @@ public class ClassificaPessoas {
             if (dadoEntrada.equalsIgnoreCase("fim")) {
                 break;
             }
-        }
-        String[] divisao = dadoEntrada.split(" - ");
-        if (divisao.length == 2) {
-            String nome = divisao[0];
-            String sexo = divisao[1];
-            if (sexo.equalsIgnoreCase("M")) {
-                masculino.add(nome);
+            String[] divisao = dadoEntrada.split("-");
+            if (divisao.length == 2) {
+                String nome = divisao[0].trim();
+                String sexo = divisao[1].trim();
+                if (sexo.equalsIgnoreCase("M")) {
+                    masculino.add(nome);
+
+                } else if (sexo.equalsIgnoreCase("F")) {
+                    feminino.add(nome);
+                } else {
+                    System.out.println("Sexo ou formato inválido");
+                }
 
             }
-            if (sexo.equalsIgnoreCase("F")) {
-                feminino.add(nome);
-            }
+
         }
+
         sc.close();
-        System.out.println(masculino);
-        System.out.println(feminino);
+        System.out.println("Masculino:" +masculino);
+        System.out.println("Feminino:" +feminino);
     }
 }
